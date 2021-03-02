@@ -1,5 +1,5 @@
 {
-  "name": "Burger_App",
+  "name": "Burger_ME_Up",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alejo-brand/Burger_App.git"
+    "url": "git+https://github.com/mnalbete/burger-me-up.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alejo-brand/Burger_App/issues"
+    "url": "https://github.com/mnalbete/burger-me-up/issues"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -25,7 +25,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^1.6.5"
   },
-  "homepage": "https://github.com/alejo-brand/Burger_App#readme",
+  "homepage": "https://github.com/mnalbete/burger-me-up#readme",
   "devDependencies": {
     "nodemon": "^2.0.7"
   }

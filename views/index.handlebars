@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="mx-auto p-0 row">
+    <div class="col-sm-12">
+      <img class="mx-auto pt-5" src="/public/assets/img/burgerMeUp.jpg" alt="BurgerImg">
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Burger-ME-UP</h1>
+  </div>
+</div>
+
+
+  <div class="row devoured">
+    <h2>Burgers I want to eat</h2>
+    <div class="col-sm-6">
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <li>{{burger_name}} <button class="btn btn-primary btn-sm" id="devourbtn" data-id="{{this.id}}">EAT ME!</button></li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-sm-6 deleteBurger">
+      <h2>burgers Devoured</h2>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <li>{{burger_name}}<button class="btn btn-primary btn-sm" id="deletebtn" data-id="{{this.id}}">delete</button></li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="input-group mb-3">
+        <input id="createburger" type="text" class="form-control" placeholder="add a burger" aria-label="Recipient's username"
+          aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" id="addBurgerbtn">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
