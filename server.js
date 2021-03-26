@@ -1,27 +1,28 @@
-require('dotenv').config()
+//Dependencies
 var express = require("express");
 
+//Set the port for our application
 var PORT = process.env.PORT || 8080;
 
+//create express app
 var app = express();
-
-//set static content for app from the public folder
+require("dotenv").config();
 app.use(express.static("public"));
 
-//create req.body and parse it
-app.use(express.urlencoded({extended:true}));
+//Set up express to handle data parsing
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-//set handlebars.
 
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars",exphbs({defaultLayout:"main"}));
-app.set("view engine","handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgers_controller.js");
+var routes = require("./controllers/burgersController.js");
+
 app.use(routes);
 
-app.listen(PORT,function(){
-    console.log("server listening on: http://localhost:"+ PORT);
+app.listen(PORT, function () {
+    // Log (server-side) when our server has started
+    console.log("Server listening on: http://localhost:" + PORT);
 });

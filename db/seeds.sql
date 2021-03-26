@@ -1,5 +1,15 @@
-INSERT INTO burgers (burger_name,devoured) VALUES("Galley Burger",false);
-
-INSERT INTO burgers (burger_name,devoured) VALUES("8 Oz Burger",false);
-
-INSERT INTO burgers (burger_name,devoured) VALUES("Colombian Burger",false);
+CREATE DATABASE burgers_db;
+USE burgers_db;
+-- Insert a set of records.
+INSERT INTO
+  burgers (burger)
+VALUES
+  ('Cheeseburger');
+INSERT INTO
+  burgers (burger)
+VALUES
+  ('Bacon Burger');
+INSERT INTO
+  burgers (burger)
+VALUES
+  ('Whiskey River BBQ Burger');

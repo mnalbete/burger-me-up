@@ -1,46 +1,42 @@
-$(function(){
-  $("#addBurgerbtn").on("click",function(){
-    const newBurger = $("#createburger").val().trim();
-    const body = {
-      burger_name: newBurger,
-      devoured:0
-    }
-    if(newBurger === ""){
-      alert("Please enter a valid name for a burger");
-      return;
-    }
-    $.ajax({
-      url:"/api/burgers",
-      method:"POST",
-      data:body
-    }).then(function(results){
-      location.reload();
-    })
-  });
-  
-  $(".devoured").on("click",function(event){
-    let id = $(event.target).data("id");
-    // console.log(id);
-    const devouredStatus = {
-      devoured:1
+$(function () {
+  $(".change-eaten").on("click", function (event) {
+    var id = $(this).data("id");
+    // var newEaten = $(this).data("newEaten");
+
+    var newEatenState = {
+      eaten: 1
     };
-    $.ajax({
-      url:"/api/burgers/" + id,
-      method:"PUT",
-      data:devouredStatus
-    }).then(function(){
-      console.log("burger devoured")
-      location.reload();
-    });
+    // Send the PUT request.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newEatenState
+    }).then(
+      function () {
+        // console.log("changed eaten to", newEaten);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  })
+
+  $(".create-form").on("submit", function (event) {
+    event.preventDefault();
+    var newBurger = {
+      burger: $("#ca").val().trim(),
+      eaten: $("[burger=eaten]:checked").val()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burgers/", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function () {
+        console.log("added new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
   });
 
-  $(".deleteBurger").on("click",function(event){
-    let id = $(event.target).data("id");
-    $.ajax({
-      url:"/api/burgers/" + id,
-      method:"DELETE"
-    }).then(location.reload())
-  });
-
- 
 });
